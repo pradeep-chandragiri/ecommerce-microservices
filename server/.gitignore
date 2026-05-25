@@ -1,0 +1,104 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+
+# Environment Variables
+.env
+.env.*
+**/.env
+**/.env.*
+
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# Runtime Files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+
+# Build / Production
+dist/
+build/
+out/
+.next/
+.cache/
+.parcel-cache/
+.turbo/
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Uploads / Static Generated Files
+uploads/
+public/uploads/
+storage/
+
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+# Package Managers
+.pnpm-store/
+.yarn/
+.yarn-cache/
+
+# Optional lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+
+# TypeScript
+*.tsbuildinfo
+
+# MongoDB
+data/
+*.wt
+*.ns
+*.0
+*.1
+mongod.lock
+
+# SSL / Secrets
+*.pem
+*.key
+*.crt
+
+# Misc
+*.zip
+*.tar
+*.gz
+*.rar
