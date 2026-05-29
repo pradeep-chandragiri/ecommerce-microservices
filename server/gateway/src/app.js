@@ -11,7 +11,7 @@ import { optionalMiddleware } from './middlewares/optional.middleware.js'
 const app = express()
 app.use(helmet())
 app.use(cookieParser())
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }))
+app.use(cors({ credentials: true, origin: `${process.env.ORIGIN_URI}` }))
 
 // health check routes
 app.get('/', (req, res) => {
