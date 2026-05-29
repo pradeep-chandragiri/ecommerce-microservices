@@ -1,4 +1,3 @@
-import userModel from '../../../user_service/src/models/user.model.js'
 import productModel from '../models/product.model.js'
 import generateProductId from '../utils/generateProductId.js'
 
