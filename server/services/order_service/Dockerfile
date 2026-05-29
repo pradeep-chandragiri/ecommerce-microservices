@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5000
+RUN npx prisma generate
+
+EXPOSE 5005
 
 CMD ["node", "server.js"]
