@@ -104,7 +104,8 @@ export const getUserOrders = async (req, res) => {
         const userId = req.headers['x-user-id']
 
         const orders = await prisma.order.findMany({ 
-            where: { userId } 
+            where: { userId },
+            include: { items: true }
         })
 
         if (orders.length === 0) {
