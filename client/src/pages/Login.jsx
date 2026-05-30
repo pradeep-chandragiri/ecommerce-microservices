@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { login } from '../services/authService.js'
+import { useAuth } from '../hooks/useAuth.js'
 
 const Login = () => {
 
+    const { setIsLoggedIn, setUser } = useAuth()
     const [form, setForm] = useState({ email: '', password: '' })
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -24,8 +26,16 @@ const Login = () => {
         setLoading(true)
         
         try {
-            await login(form)
-            navigate('/products')
+            const data = await login(form)
+            if (data.success) {
+                setUser(data.data.user)
+                setIsLoggedIn(true)
+                navigate('/products')
+            } else {
+                setUser(null)
+                setIsLoggedIn(false)
+            }
+            
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed. Try again.')
         } finally {
