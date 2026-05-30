@@ -9,35 +9,33 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+    // fetching user info 
+    const fetchUser = async () => {
 
-    useEffect(() => {
-        // fetching user info 
-        const fetchUser = async () => {
+        try {
+            const data = await getUser()
 
-            try {
-                const data = await getUser()
-
-                // fetches success
-                if (data.success) {
-                    setUser(data.data.user)
-                    setIsLoggedIn(true)
-                } 
-                // fetches fails
-                else {
-                    setUser(null)
-                    setIsLoggedIn(false)
-                }
-            } catch (error) {
+            // fetches success
+            if (data.success) {
+                setUser(data.data.user)
+                setIsLoggedIn(true)
+            } 
+            // fetches fails
+            else {
                 setUser(null)
                 setIsLoggedIn(false)
-            } finally {
-                setLoading(false)
             }
+        } catch (error) {
+            setUser(null)
+            setIsLoggedIn(false)
+        } finally {
+            setLoading(false)
         }
-
+    }
+    useEffect(() => {
         // calling fetchUser
         fetchUser()
-    }, [])
+    }, [isLoggedIn])
 
     const values = useMemo(() => {
         return { 
