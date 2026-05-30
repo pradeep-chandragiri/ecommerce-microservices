@@ -1,11 +1,12 @@
 import React, { use } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { images } from '../assets/assets.js'
 import { useAuth } from '../hooks/useAuth.js'
 
 const Navbar = () => {
 
     const { user } = useAuth()
+    const navigate = useNavigate()
 
     return (
         <>
@@ -38,8 +39,8 @@ const Navbar = () => {
                     <div className="cometKit">
                         { !user &&
                             <div className="cometBtns">
-                                <div className="btn secondary">Login</div>
-                                <div className="btn primary">Create account</div>
+                                <div className="btn secondary" onClick={ navigate('/login') }>Login</div>
+                                <div className="btn primary" onClick={ navigate('/register') }>Create account</div>
                             </div>
                         }
                         { user &&
