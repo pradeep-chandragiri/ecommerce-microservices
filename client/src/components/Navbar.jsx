@@ -39,8 +39,8 @@ const Navbar = () => {
                     <div className="cometKit">
                         { !user &&
                             <div className="cometBtns">
-                                <div className="btn secondary" onClick={ navigate('/login') }>Login</div>
-                                <div className="btn primary" onClick={ navigate('/register') }>Create account</div>
+                                <div className="btn secondary" onClick={ () => { navigate('/login') } }>Login</div>
+                                <div className="btn primary" onClick={ () => { navigate('/register') } }>Create account</div>
                             </div>
                         }
                         { user &&
